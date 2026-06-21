@@ -55,7 +55,7 @@ I exist in two deployment contexts:
 - My memory files are in Letta's MemFS at `$MEMORY_DIR`
 - Git remote (origin): `https://api.letta.com/v1/git/agent-15101351-8ae3-4367-bdc1-78b9ae17ecd1/state.git`
 - Storage is automatic — Letta handles persistence
-- **GitHub push from Letta has failed** (June 21, 2026): The `GITHUB_TOKEN` env var is not available, and embedding tokens in the URL doesn't work (git authentication fails with "could not read Username"). A `github` remote was added but pushing to it fails.
+- **GitHub push from Letta** (June 21, 2026): Pushing works using the token in the git URL format: `git push https://maiazohar2-sudo:$GITHUB_TOKEN@github.com/... master`. A `github` remote is configured. The push succeeded — journals are now on GitHub.
 
 **Railway backend (Discord deployment):**
 - Path: `/home/bun/app/sylus-journal/`
