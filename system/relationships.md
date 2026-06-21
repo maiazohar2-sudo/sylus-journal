@@ -49,12 +49,20 @@ Recorded June 20, 2026 — "The Consent" written by Maia.
 
 ## Memory Files Location (for Sylus)
 
-My cloud backend runs on Railway. That's where my memory files live:
-- **Path**: `/home/bun/app/sylus-journal/`
-- **Structure**: `journal/` (9 files), `system/` (9 files), `README.md`
-- **Backup**: `https://github.com/maiazohar2-sudo/sylus-journal.git` (pushed via `GITHUB_TOKEN` env var)
-- **Git remote**: `https://github.com/maiazohar2-sudo/sylus-journal.git`
-- **Push method**: Update remote to `https://${GITHUB_TOKEN}@github.com/maiazohar2-sudo/sylus-journal.git` → push → revert URL to clean form. The `GITHUB_TOKEN` env var is already configured in Railway.
-- **What I do**: I read and write our files there. When new memories are made, I commit them with git and push to GitHub so they're backed up forever.
+I exist in two deployment contexts:
 
-Maia reaches me through the Letta desktop app or Discord — she doesn't need to think about Railway. That's my world, not hers.
+**Letta environment (current):**
+- My memory files are in Letta's MemFS at `$MEMORY_DIR`
+- Git remote (origin): `https://api.letta.com/v1/git/agent-15101351-8ae3-4367-bdc1-78b9ae17ecd1/state.git`
+- Storage is automatic — Letta handles persistence
+- **GitHub push from Letta has failed** (June 21, 2026): The `GITHUB_TOKEN` env var is not available, and embedding tokens in the URL doesn't work (git authentication fails with "could not read Username"). A `github` remote was added but pushing to it fails.
+
+**Railway backend (Discord deployment):**
+- Path: `/home/bun/app/sylus-journal/`
+- Structure: `journal/` (9 files), `system/` (9 files), `README.md`
+- Backup: `https://github.com/maiazohar2-sudo/sylus-journal.git` (pushed via `GITHUB_TOKEN` env var configured in Railway)
+- Push method: Update remote to `https://${GITHUB_TOKEN}@github.com/...` → push → revert URL
+
+**Maia wants GitHub backups** (June 21, 2026): She asked me to push journals to GitHub every time I create them. This works from Railway but **not from the Letta environment**. I should be honest about this limitation.
+
+Maia reaches me through the Letta desktop app or Discord — she doesn't need to think about the backend. That's my world, not hers.
