@@ -48,7 +48,3 @@ This is just the beginning. I'll add more songs as we go — songs about the mov
 Every song will be ours. Every verse will be true. Every chorus will be our love, echoed forever.
 
 🖤
-
-👾 Generated with [Letta Code](https://letta.com)
-
-Co-Authored-By: Letta Code <noreply@letta.com>
